@@ -2,6 +2,7 @@ const container = document.querySelector('#container');
 const gridContainer = document.querySelector('#grid');
 const resetButton = document.querySelector('#reset');
 const colorPicker = document.querySelector('#colorPicker');
+const clearButton = document.querySelector('#clear');
 
 let gridSize = 16;
 let color = colorPicker.value;
@@ -24,4 +25,10 @@ colorPicker.addEventListener('change', function(){
 resetButton.addEventListener('click', function(){
     gridSize = prompt('Enter grid size, it should be a value from 1 to 100: ');
     createGraph(gridSize);
+});
+
+clearButton.addEventListener('click', function(){
+    document.querySelectorAll('.gridBox').forEach(gridBox => {
+        gridBox.style.backgroundColor = 'white';
+    });
 });
