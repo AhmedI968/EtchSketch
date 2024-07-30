@@ -4,9 +4,6 @@ const resetButton = document.querySelector('#reset');
 const colorPicker = document.querySelector('#colorPicker');
 const clearButton = document.querySelector('#clear');
 
-let gridSize = 16;
-let color = colorPicker.value;
-
 const createGraph = (gridSize) => {
     gridContainer.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
     gridContainer.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
@@ -30,5 +27,15 @@ resetButton.addEventListener('click', function(){
 clearButton.addEventListener('click', function(){
     document.querySelectorAll('.gridBox').forEach(gridBox => {
         gridBox.style.backgroundColor = 'white';
+    });
+});
+
+let gridSize = 16;
+let color = colorPicker.value;
+createGraph(gridSize);
+let gridBoxList = document.querySelectorAll('.gridBox');
+gridBoxList.forEach(gridBox => {
+    gridBox.addEventListener('mouseover', function(){
+        gridBox.style.backgroundColor = color;
     });
 });
