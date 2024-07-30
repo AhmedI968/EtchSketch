@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etch-A-Sketch</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>Etch-A-Sketch</h1>
-    <div id="container"></div>
-</body>
-<script src="scirpt.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Etch-A-Sketch</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Etch-A-Sketch</h1>
+        <div id="container">
+            <div id="controls">
+                <label for="colorPicker">Select your color:</label>
+                <input type="color" id="colorPicker" name="colorPicker">
+                <button id="Reset">Reset</button>
+            </div>
+            <div id="grid"></div>
+        </div>
+    </body>
+    <script src="scirpt.js" defer></script>
 </html>
