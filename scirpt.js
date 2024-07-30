@@ -12,7 +12,16 @@ const createGraph = (gridSize) => {
         gridBox.classList.add('gridBox');
         gridContainer.appendChild(gridBox);
     };
-    document.querySelectorAll('.dimensions').textContent = `${number}x${number}`;
+    document.querySelectorAll('.dimensions').textContent = `${gridSize}x${gridSize}`;
+};
+
+const addFunctionality = () => {
+    let gridBoxList = document.querySelectorAll('.gridBox');
+    gridBoxList.forEach(gridBox => {
+        gridBox.addEventListener('mouseover', function(){
+            gridBox.style.backgroundColor = colorPicker.value;
+        });
+    });
 };
 
 colorPicker.addEventListener('change', function(){
@@ -20,8 +29,18 @@ colorPicker.addEventListener('change', function(){
 })
 
 resetButton.addEventListener('click', function(){
-    gridSize = prompt('Enter grid size, it should be a value from 1 to 100: ');
+    let gridSize = prompt('Enter grid size, it should be a value from 1 to 100: ');
+    if (gridSize === null) {
+        return;
+    }
+    while (gridSize < 1 || gridSize > 100) {
+        gridSize = prompt('Invalid input, please enter a value from 1 to 100');
+    }
+    while (gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.firstChild);
+    }
     createGraph(gridSize);
+    addFunctionality();
 });
 
 clearButton.addEventListener('click', function(){
@@ -31,11 +50,5 @@ clearButton.addEventListener('click', function(){
 });
 
 let gridSize = 16;
-let color = colorPicker.value;
 createGraph(gridSize);
-let gridBoxList = document.querySelectorAll('.gridBox');
-gridBoxList.forEach(gridBox => {
-    gridBox.addEventListener('mouseover', function(){
-        gridBox.style.backgroundColor = color;
-    });
-});
+addFunctionality();
