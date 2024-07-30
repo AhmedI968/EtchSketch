@@ -1,0 +1,29 @@
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: lightgray;
+}
+
+#grid {
+    display: grid;
+    height: 70%;
+    width: 70%;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.gridBox {
+    border: 1px solid lightgray; 
+    background-color: white; 
+    height: 100%;
+    width: 100%;
+}
+
+.dimensions {
+    color: black;
+}
